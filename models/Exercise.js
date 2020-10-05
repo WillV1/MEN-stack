@@ -1,4 +1,5 @@
-const exercises = [{
+const exercises = [
+{
     name: 'push ups',
     equipment: 'body',
     reps: 10,
@@ -39,3 +40,5 @@ const exercises = [{
     completed: false
 }
 ]
+
+module.exports = exercises;
