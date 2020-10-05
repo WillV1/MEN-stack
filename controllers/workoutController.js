@@ -17,15 +17,24 @@ router.get('/:id', (req, res) => {
     const id = req.params.id;
     const exercise = exercises[id];
 
-    res.render('exercises/show', {exercise: exercise});
+    res.render('exercises/show', {
+        exercise: exercise,
+        id: id
+    });
 });
 
+//create exercise
 router.post('/', (req, res) => {
     req.body.completed = req.body.completed === 'on';
     exercises.push(req.body);
     res.redirect('/workouts');
 });
 
+//delete exercise
+router.delete('/:id', (req, res) => {
+    exercises.splice(req.params.id, 1);
+    res.redirect('/workouts');
+});
 
 
 module.exports = router;

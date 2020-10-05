@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 const workoutCtrl = require('./controllers/workoutController');
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(methodOverride('._method'));
+app.use(methodOverride('_method'));
 
 //Home route
 app.get('/', (req, res) => {
