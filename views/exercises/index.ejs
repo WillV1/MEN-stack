@@ -10,7 +10,11 @@
     
         <ul>
             <% exercises.forEach((item, index) => { %>
-                <li style="margin-left: 20px;"><%= item.name %></li> 
+                <li style="margin-left: 20px;">
+                    <a href="/workouts/<%= index %>">
+                        <%= item.name %>
+                    </a>
+                </li>   
             <% }) %> 
         </ul>
 </body>

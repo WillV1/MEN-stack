@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+</head>
+<body>
+        <h2><%= exercise.name.toUpperCase() %></h2>
+        <p>Equipment Used: <%= exercise.equipment %></p>
+        <p>Reps Completed: <%= exercise.reps %></p>
+        <p>Sets Completed: <%= exercise.sets %></p>
+        <p>Weight Lifted: <%= exercise.weight %></p>
+        <% if(exercise.completed === true) { %>
+            <p>Completed Exercise? Yes</p>
+        <% } else { %>
+            <p>Completed Exercise? No</p>
+        <% } %>
+        
+</body>
+</html>
