@@ -1,6 +1,6 @@
 const exercises = [
 {
-    name: 'push ups',
+    name: 'push-ups',
     equipment: 'body',
     reps: 10,
     sets: 3,
