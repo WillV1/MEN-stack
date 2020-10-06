@@ -17,13 +17,12 @@ router.get('/new', (req, res) =>{
 
 //show route
 router.get('/:id', (req, res) => {
-    const id = req.params.id;
-    const exercise = exercises[id];
-
+    db.Exercise.findById(req.params.id, (err, showExercise) => {
+        if (err) return console.log(err);
     res.render('exercises/show', {
-        exercise: exercise,
-        id: id
+        exercise: showExercise,
     });
+});
 });
 
 //create exercise
