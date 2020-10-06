@@ -36,8 +36,10 @@ router.post('/', (req, res) => {
 
 //delete exercise
 router.delete('/:id', (req, res) => {
-    exercises.splice(req.params.id, 1);
-    res.redirect('/workouts');
+    db.Exercise.findByIdAndDelete(req.params.id, (err, deletedExercise) => {
+        if (err)  return console.log(err);
+        res.redirect('/workouts');
+    });
 });
 
 //edit exercise route
