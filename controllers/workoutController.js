@@ -44,10 +44,12 @@ router.delete('/:id', (req, res) => {
 
 //edit exercise route
 router.get('/:id/edit', (req, res) => {
+    db.Exercise.findById(req.params.id, (err, foundExercise) => {
+        if (err) return console.log(err);
     res.render('exercises/edit', {
-        exercise: exercises[req.params.id],
-        id: req.params.id
+        exercise: foundExercise
     });
+});
 });
 
 //edit exercise
@@ -58,11 +60,15 @@ router.put('/:id', (req, res) => {
     } else {
         req.body.completed = false
     };
-
-    exercises[req.params.id] = req.body;
-
-    exercises.splice(req.params.id, 1, req.body);
-    res.redirect(`/workouts/${req.params.id}`)
+    db.Exercise.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true},
+        (err, updatedExercise) => {
+            if (err) return console.log(err);
+            res.redirect(`/workouts/${updatedExercise._id}`)
+        }
+    )
 });
 
 
