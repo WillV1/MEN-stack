@@ -28,8 +28,10 @@ router.get('/:id', (req, res) => {
 //create exercise
 router.post('/', (req, res) => {
     req.body.completed = req.body.completed === 'on';
-    exercises.push(req.body);
-    res.redirect('/workouts');
+    db.Exercise.create(req.body, (err, newExercise) => {
+        if(err) return console.log(err);
+        res.redirect(`/workouts/${newExercise._id}`);
+    });
 });
 
 //delete exercise

@@ -9,14 +9,13 @@
     <%- include("../partials/nav.ejs") %>
     <h1>Your Workout List</h1>
 
-    <% let time = new Date(); %>
-    <% document.getElementByTagName('h3').innerHTML = time.getDate(); %>
-    <h3></h3>
+    <!-- https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript -->
+    <h3><%= new Date().toISOString().slice(0,10)%></h3>
     
         <ul>
             <% exercises.forEach((item, index) => { %>
                 <li style="margin-left: 20px;">
-                    <a href="/workouts/<%= index %>">
+                    <a href="/workouts/<%= item._id %>">
                         <%= item.name %>
                     </a>
                 </li>   
