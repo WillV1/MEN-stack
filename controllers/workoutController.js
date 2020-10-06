@@ -36,5 +36,28 @@ router.delete('/:id', (req, res) => {
     res.redirect('/workouts');
 });
 
+//edit exercise route
+router.get('/:id/edit', (req, res) => {
+    res.render('exercises/edit', {
+        exercise: exercises[req.params.id],
+        id: req.params.id
+    });
+});
+
+//edit exercise
+router.put('/:id', (req, res) => {
+
+    if(req.body.completed === 'on'){
+        req.body.completed = true
+    } else {
+        req.body.completed = false
+    };
+
+    exercises[req.params.id] = req.body;
+
+    exercises.splice(req.params.id, 1, req.body);
+    res.redirect(`/workouts/${req.params.id}`)
+});
+
 
 module.exports = router;

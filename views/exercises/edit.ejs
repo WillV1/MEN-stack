@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Exercise</title>
+</head>
+<body>
+    <h1>Edit Exercise</h1>
+    <form action="/workouts/<%=id %>?_method=PUT" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= exercise.name %>" />
+        </div>
+        <div>
+            <label for="equipment">Equipment Used:</label>
+            <input type="text" id="equipment" name="equipment" value="<%= exercise.equipment %>" />
+        </div>
+        <div>
+            <label for="reps">Reps:</label>
+            <input type="number" id="reps" name="reps" value="<%= exercise.reps %>" />
+        </div>
+        <div>
+            <label for="sets">Sets:</label>
+            <input type="number" id="sets" name="sets" value="<%= exercise.sets %>" />
+        </div>
+        <div>
+            <label for="weight">Weight Lifted:</label>
+            <input type="number" id="weight" name="weight" value="<%= exercise.weight %>" />
+        </div>
+        <div>
+            <label for="completed">Completed Exercise?</label>
+            <input type="checkbox" id="completed" name="completed" <%=exercise.completed ? 'checked': "" %> />
+        </div>
+        <input type="submit" value="Update Exercise"/>
+    </form>
+</body>
+</html>
