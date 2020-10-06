@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const exercises = require('../models/Exercise');
+const db = require('../models');
 
 //index route
 router.get('/', (req,res) => {
-    res.render('exercises/index', {exercises: exercises});
+    db.Exercise.find({}, (err, allExercises) => {
+        if(err) return console.log(err);
+        res.render('exercises/index', {exercises: allExercises});
+    });
 });
 
 //add exercise route
