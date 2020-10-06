@@ -6,33 +6,36 @@
     <title>Edit Exercise</title>
 </head>
 <body>
+    <div class="container">
     <h1>Edit Exercise</h1>
     <form action="/workouts/<%= exercise._id %>?_method=PUT" method="POST">
-        <div>
+        <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="<%= exercise.name %>" />
+            <input type="text" class="form-control" id="name" name="name" value="<%= exercise.name %>" />
         </div>
-        <div>
+        <div class="form-group">
             <label for="equipment">Equipment Used:</label>
-            <input type="text" id="equipment" name="equipment" value="<%= exercise.equipment %>" />
+            <input type="text" class="form-control" id="equipment" name="equipment" value="<%= exercise.equipment %>" />
         </div>
-        <div>
+        <div class="form-group">
             <label for="reps">Reps:</label>
-            <input type="number" id="reps" name="reps" value="<%= exercise.reps %>" />
+            <input type="number" class="form-control" id="reps" name="reps" value="<%= exercise.reps %>" />
         </div>
-        <div>
+        <div class="form-group">
             <label for="sets">Sets:</label>
-            <input type="number" id="sets" name="sets" value="<%= exercise.sets %>" />
+            <input type="number" class="form-control" id="sets" name="sets" value="<%= exercise.sets %>" />
         </div>
-        <div>
+        <div class="form-group">
             <label for="weight">Weight Lifted:</label>
-            <input type="number" id="weight" name="weight" value="<%= exercise.weight %>" />
+            <input type="number" class="form-control" id="weight" name="weight" value="<%= exercise.weight %>" />
         </div>
-        <div>
+        <div class="form-group">
             <label for="completed">Completed Exercise?</label>
             <input type="checkbox" id="completed" name="completed" <%=exercise.completed ? 'checked': "" %> />
         </div>
-        <input type="submit" value="Update Exercise"/>
+        <button type="submit" class="btn btn-primary">Update Exercise</button>
+        <button type="button" class="btn btn-primary"><a href="/workouts/<%= exercise._id %>">Back</a></button>
     </form>
+    </div>
 </body>
 </html>

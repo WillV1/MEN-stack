@@ -7,8 +7,13 @@ const PORT = 4000;
 
 app.set('view engine', 'ejs');
 
+//Public views for css file
+app.use( express.static( "public" ) );
+
+//Controller
 const workoutCtrl = require('./controllers/workoutController');
 
+//Middleware
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 

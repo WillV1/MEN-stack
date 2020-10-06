@@ -1,0 +1,22 @@
+ul {
+    list-style-type: none;
+}
+
+.intro {
+    margin-top: 5%
+}
+
+.intro h1 {
+    text-align: center;
+}
+
+.intro h3 {
+    text-align: center;
+}
+
+.button-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise List</title>
+    <%- include("../partials/header.ejs") %>
 </head>
 <body>
     <%- include("../partials/nav.ejs") %>
+    <div class="container">
     <h1>Your Workout List</h1>
 
     <!-- https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript -->
@@ -21,5 +20,6 @@
                 </li>   
             <% }) %> 
         </ul>
+    </div>
 </body>
 </html>

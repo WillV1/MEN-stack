@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise</title>
+    <%- include("../partials/header.ejs") %>
 </head>
 <body>
     <%- include("../partials/nav.ejs") %>
-
+<div class="container">
     <h2><%= exercise.name.toUpperCase() %></h2>
         <p>Equipment Used: <%= exercise.equipment %></p>
         <p>Reps: <%= exercise.reps %></p>
@@ -19,11 +17,12 @@
             <p>Completed Exercise? No</p>
         <% } %>
     <form action="/workouts/<%= exercise._id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete Exercise">
+        <button type="submit" class="btn btn-primary">Delete Exercise</button>
     </form>
     <form action="/workouts/<%= exercise._id %>/edit" method="GET">
-        <input type="submit" value="Edit Exercise">
+        <button type="submit" class="btn btn-primary">Edit Exercise</button>
     </form>
-        
+   
+</div>
 </body>
 </html>
